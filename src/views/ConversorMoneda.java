@@ -155,8 +155,7 @@ public class ConversorMoneda {
 				List<Double> cambio = origen.getCambio(); 
 				Moneda destino = (Moneda) cbDestino.getSelectedItem();				
 				
-				BigDecimal resultado = new BigDecimal(cantidad * cambio.get(monedas.indexOf(destino)));	
-				System.out.println(resultado);
+				BigDecimal resultado = new BigDecimal(cantidad * cambio.get(monedas.indexOf(destino)));				
 				lbConversion.setText(resultado.setScale(2, RoundingMode.UP).toString());
 				
 			}

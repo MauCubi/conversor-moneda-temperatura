@@ -118,7 +118,7 @@ public class ConversorTemperatura {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				if(((Character.isDigit(c))||(c==e.VK_PERIOD)||(c==e.VK_BACK_SPACE))&&(fieldCantidad.getText().length()!=15)){
+				if(((Character.isDigit(c))||(c==e.VK_PERIOD)||(c==e.VK_BACK_SPACE)||(c==e.VK_MINUS))&&(fieldCantidad.getText().length()!=15)){
 		            int punto=0;
 		            if(c==KeyEvent.VK_PERIOD){ 
 		                        String s=fieldCantidad.getText();
@@ -128,11 +128,19 @@ public class ConversorTemperatura {
 		                            e.consume();
 		                        }
 		                    }
+		            if(c==KeyEvent.VK_MINUS){ 
+                        String s=fieldCantidad.getText();
+                        int minus=s.indexOf('-');
+                        punto=minus;		                        
+                        if(minus!=-1 && fieldCantidad.getText().length()>0){		                            
+                            e.consume();
+                        }
+                    }
+		            
 		        }
 		        else{   		            
 		            e.consume();
-		        }
-			}
+		        }			}
 		});
 	    
 	    btnConvertir.addActionListener(new ActionListener() {
